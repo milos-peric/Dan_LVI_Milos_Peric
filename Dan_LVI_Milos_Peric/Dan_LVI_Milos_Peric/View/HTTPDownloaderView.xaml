@@ -61,6 +61,6 @@
         <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding ArchiveFileName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalContentAlignment="Center" TextAlignment="Left"  Width="150"/>
         <Button Grid.Column="2" Grid.Row="3" Command="{Binding DownloadCommand}" Content="Download HTML" Width="Auto" HorizontalAlignment="Left" Margin="10 0 0 0" Height="30"/>
         <Button Grid.Column="3" Grid.Row="11" Command="{Binding QuitCommand}" Content="Quit" Width="Auto" HorizontalAlignment="Center" Margin="0 0 0 0" Height="30"/>
-        <Button Grid.Column="2" Grid.Row="10" Command="{Binding CompressCommand}" Content="Compress file" Width="Auto" HorizontalAlignment="Left" Margin="20 0 0 0" Height="30"/>
+        <Button Grid.Column="2" Grid.Row="10" Command="{Binding CompressCommand}" Content="Zip files" Width="Auto" HorizontalAlignment="Left" Margin="20 0 0 0" Height="30"/>
     </Grid>
 </Window>
