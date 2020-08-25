@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dan_LVI_Milos_Peric.View"
         mc:Ignorable="d"
-        Title="HTTPDownloaderView" Height="450" Width="550" Background="#FF6FAACB" WindowStartupLocation="CenterScreen">
+        Title="HTTPDownloaderView" Height="420" Width="550" Background="#FF6FAACB" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin"            Value="0,0,10,0" />
@@ -42,6 +42,11 @@
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
 
+        <Border Grid.Row="2" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="3" BorderThickness="2"  VerticalAlignment="Top" BorderBrush="#FF415F30" Margin="0 0 0 0" Width="400" Height="200">
+        </Border>
+        <Border Grid.Row="9" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3" BorderThickness="2"  VerticalAlignment="Top" BorderBrush="#FF646422" Margin="0 0 0 0" Width="380" Height="80">
+        </Border>
+
         <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"  Content="HTML Downloader" VerticalAlignment="Center" 
                HorizontalAlignment="Center" Foreground="#FF995433" FontSize="18" Margin="70 0 0 0" FontWeight="Bold"/>
         <TextBlock Grid.Column="1" Grid.Row="2" Text="Enter HTML link to download" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White"/>
@@ -55,7 +60,7 @@
         <TextBlock Grid.Column="1" Grid.Row="9" Text="Enter archive file name" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White"/>
         <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding ArchiveFileName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalContentAlignment="Center" TextAlignment="Left"  Width="150"/>
         <Button Grid.Column="2" Grid.Row="3" Command="{Binding DownloadCommand}" Content="Download HTML" Width="Auto" HorizontalAlignment="Left" Margin="10 0 0 0" Height="30"/>
-        <Button Grid.Column="3" Grid.Row="1" Command="{Binding QuitCommand}" Content="Quit" Width="Auto" HorizontalAlignment="Center" Margin="0 0 0 0" Height="30"/>
+        <Button Grid.Column="3" Grid.Row="11" Command="{Binding QuitCommand}" Content="Quit" Width="Auto" HorizontalAlignment="Center" Margin="0 0 0 0" Height="30"/>
         <Button Grid.Column="2" Grid.Row="10" Command="{Binding CompressCommand}" Content="Compress file" Width="Auto" HorizontalAlignment="Left" Margin="20 0 0 0" Height="30"/>
     </Grid>
 </Window>

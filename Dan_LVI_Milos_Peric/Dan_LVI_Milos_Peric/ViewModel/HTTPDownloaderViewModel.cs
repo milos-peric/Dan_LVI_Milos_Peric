@@ -17,10 +17,15 @@ namespace Dan_LVI_Milos_Peric.ViewModel
     {
         private HTTPDownloaderView hTTPDownloaderView;
 
+        #region Constructor
+
         public HTTPDownloaderViewModel(HTTPDownloaderView hTTPDownloaderView)
         {
             this.hTTPDownloaderView = hTTPDownloaderView;
         }
+        #endregion
+
+        #region Properties
 
         private string htmlLink;
         public string HtmlLink
@@ -87,6 +92,9 @@ namespace Dan_LVI_Milos_Peric.ViewModel
                 OnPropertyChanged("HtmlDownload");
             }
         }
+        #endregion
+
+        #region Commands
 
         private ICommand downloadCommand;
         public ICommand DownloadCommand
@@ -121,7 +129,7 @@ namespace Dan_LVI_Milos_Peric.ViewModel
                             Directory.CreateDirectory(@"..\..\.\" + FolderName);
                         }
                         client.DownloadFile(HtmlLink, HtmlFilePath);
-                        MessageBox.Show("File downloaded successfully in Project root directory", "Success!");
+                        MessageBox.Show("File downloaded successfully to Project root directory.", "Success!");
                     }
                     catch (WebException e)
                     {
@@ -167,11 +175,16 @@ namespace Dan_LVI_Milos_Peric.ViewModel
         {
             try
             {
+                if (string.IsNullOrEmpty(ArchiveFileName))
+                {
+                    MessageBox.Show("Please enter zip archive file name.", "Warning!");
+                    return;
+                }
                 string dirname = @"..\..\.\" + FolderName;
                 string zippath = @"..\..\.\" + ArchiveFileName + ".zip";
                 if (File.Exists(zippath))
                 {
-                    MessageBox.Show("Archive with same name already exists please choose another name", "Warning!");
+                    MessageBox.Show("Archive with same name already exists please choose another name.", "Warning!");
                     return;
                 }
                 if (!File.Exists(HtmlFilePath))
@@ -180,7 +193,7 @@ namespace Dan_LVI_Milos_Peric.ViewModel
                     return;
                 }
                 ZipFile.CreateFromDirectory(dirname, zippath);
-                MessageBox.Show("File archived successfully in Project root directory");
+                MessageBox.Show("File archived successfully in Project root directory.");
             }
             catch (Exception ex)
             {
@@ -224,5 +237,6 @@ namespace Dan_LVI_Milos_Peric.ViewModel
                 MessageBox.Show(ex.ToString());
             }
         }
+        #endregion
     }
 }
